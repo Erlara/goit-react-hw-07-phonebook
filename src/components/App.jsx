@@ -5,13 +5,13 @@ import { Layout } from './Layout';
 import { Filter } from './Filter/Filter';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
-import { getError, getIsLoading } from 'redux/selectors';
+import { selectError, selectIsLoading } from 'redux/selectors';
 import { useEffect } from 'react';
 
 export function App() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());
